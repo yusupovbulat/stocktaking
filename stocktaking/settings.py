@@ -62,7 +62,7 @@ ROOT_URLCONF = 'stocktaking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['documents/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
