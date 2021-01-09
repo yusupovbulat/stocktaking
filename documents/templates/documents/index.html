@@ -1,0 +1,13 @@
+{% extends 'documents/base.html' %}
+{% block title %}Documents{% endblock %}
+{% block content %}
+{% if documents.count > 0 %}
+  {% for document in documents %}
+    <ul>
+      <li>{{ document.name }} № {{ document.number }} от {{ document.date }}</li>
+    </ul>
+  {% endfor %}
+{% else %}
+<h1>There are no documents in database</h1>
+{%endif %}
+{% endblock %}
