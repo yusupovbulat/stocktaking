@@ -37,6 +37,22 @@ class Provider(models.Model):
         return f"{self.name}"
 
 
+class BaseDocument(models.Model):
+    number = models.CharField(
+        max_length=20,
+        default='',
+        blank=True,
+        null=False
+    )
+    date = models.DateField(default=today_date())
+
+    class Meta:
+        db_table = "base_document"
+
+    def __str__(self):
+        return f"{self.number} от {self.date}"
+
+
 class Document(models.Model):
     """
     Contains documents
@@ -52,8 +68,8 @@ class Document(models.Model):
         blank=True,
     )
     date = models.DateField(default=today_date())
-    base_number = models.CharField(max_length=20, blank=True)
-    base_date = models.DateField(default=today_date())
+    base = models.ForeignKey(
+        BaseDocument, on_delete=models.CASCADE, default='', related_name="documents")
     provider = models.ForeignKey(
         Provider,
         on_delete=models.CASCADE,
