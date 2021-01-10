@@ -3,7 +3,7 @@ from datetime import date
 
 
 def today_date():
-    return date.today().strftime("YYYY-MM-DD")
+    return date.today().strftime("%Y-%m-%d")
 
 
 class DocumentName(models.Model):
