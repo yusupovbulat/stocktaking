@@ -1,5 +1,13 @@
 {% extends "documents/base.html" %}
 {% block title %} Add new document {% endblock %}
 {% block content %}
-{{ form.as_p }}
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <p>
+    <input type="submit" value="Submit">
+  </p>
+</form>
 {% endblock %}
